@@ -8,7 +8,9 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: |
+            cd SimpleApplication
+            npm install
 
   test:
     docker:
@@ -17,7 +19,9 @@ jobs:
       - checkout
       - run:
           name: Run tests
-          command: npm test
+          command: |
+            cd SimpleApplication
+            npm test
 
   deploy:
     docker:
