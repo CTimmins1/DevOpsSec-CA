@@ -32,7 +32,8 @@ jobs:
           name: Deploy to EC2
           command: |
             ssh -o StrictHostKeyChecking=no ec2-user@${EC2_HOST} '
-            cd /home/ec2-user/SimpleApplication &&
+            cd ~ &&
+            cd SimpleApplication &&
             git pull origin main &&
             npm install --production &&
             pm2 restart mathapp || pm2 start bin/www --name mathapp'
